@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recuperar Senha</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="favicon.png.png">
+</head>
+
+
+<body class="login-page"></body>
+
+<div class="login-container">
+    <div class="login-box">
+
+        <h1>Recuperar Senha</h1>
+
+        <p>Digite o e-mail cadastrado.</p>
+
+        <input
+            type="email"
+            id="email"
+            placeholder="Seu e-mail"
+        >
+
+        <button onclick="recuperarSenha()">
+            Verificar E-mail
+        </button>
+
+        <div id="areaNovaSenha">
+
+            <input
+                type="password"
+                id="novaSenha"
+                placeholder="Nova senha"
+            >
+
+            <input
+                type="password"
+                id="confirmarSenha"
+                placeholder="Confirmar nova senha"
+            >
+
+            <button onclick="salvarNovaSenha()">
+                Salvar Nova Senha
+            </button>
+
+        </div>
+
+        <a href="login.html" class="voltar">
+            Voltar ao Login
+        </a>
+
+    </div>
+    </div>
+
+
+
+    <script>
+
+        function recuperarSenha(){
+
+            const email =
+                document.getElementById("email").value;
+
+            const emailSalvo =
+                localStorage.getItem("email");
+
+            if(email === emailSalvo){
+
+                document.getElementById("areaNovaSenha")
+                    .style.display = "block";
+
+            }else{
+
+                alert("E-mail não encontrado!");
+
+            }
+        }
+
+        function salvarNovaSenha(){
+
+            const novaSenha =
+                document.getElementById("novaSenha").value;
+
+            const confirmarSenha =
+                document.getElementById("confirmarSenha").value;
+
+            if(novaSenha === "" || confirmarSenha === ""){
+
+                alert("Preencha todos os campos!");
+                return;
+            }
+
+            if(novaSenha !== confirmarSenha){
+
+                alert("As senhas não coincidem!");
+                return;
+            }
+
+            localStorage.setItem("senha", novaSenha);
+
+            alert("Senha alterada com sucesso!");
+
+            window.location.href = "login.html";
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,2017 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&family=Great+Vibes&display=swap" rel="stylesheet">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Tempero Brasileiro</title>
+
+    <link rel="icon" type="image/png" href="favicon.png.png">
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- FONTES -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- ICONES -->
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+
+<!-- JANELA PERFIL -->
+<body>
+
+   
+    <!-- HERO -->
+
+    
+    
+    <header class="topo-site">
+
+        <h1 class="logo">
+    <i class="fa-solid fa-pepper-hot"></i>
+    <span class="tempero">Tempero</span>
+    <span class="brasileiro">Brasileiro</span>
+</h1>
+
+        <div class="acoes-topo">
+            
+    <button id="toggleTema" class="btn-tema">
+        <i class="fa-solid fa-moon"></i>
+    </button>
+
+    <button id="btnFavoritos" class="btn-favoritos" onclick="mostrarFavoritos()" title="Ver favoritos">
+    <i class="fa-solid fa-heart"></i>
+</button>
+
+<button class="btn-info" onclick="abrirInfo()" title="Informações do site">
+    <i class="fa-solid fa-circle-info"></i>
+</button>
+
+  <div class="perfil" onclick="abrirPerfil()">
+    <img id="fotoPerfil" src="perfil-padrao.png" alt="Perfil">
+
+    <i class="fa-solid fa-chevron-down seta-perfil"></i>
+</div>
+
+        <div id="painelPerfil" class="painel-perfil">
+
+            <h3>Meu Perfil</h3>
+        
+            <p>
+                <strong>Email:</strong>
+                <span id="emailUsuario"></span>
+            </p>
+        
+           <p class="linha-senha">
+    <strong>Senha:</strong>
+
+    <span id="senhaEscondida">••••••••</span>
+
+    <button type="button" id="btnMostrarSenha" class="btn-olho">
+        <i class="fa-solid fa-eye"></i>
+    </button>
+</p>
+
+            <input
+            type="file"
+            id="uploadFotoPainel"
+            accept="image/*">
+
+            <button onclick="salvarFoto()">
+                Trocar Foto
+            </button>
+        
+            <button onclick="logout()">
+                Sair da Conta
+            </button>
+        
+        </div>
+    
+    </header>
+    
+    <div class="hero"></div>
+
+    <!-- MAIN -->
+    <main>
+
+       <section class="titulo-section">
+
+    <p class="frase-topo">
+        <i>🍽</i>
+        SABORES QUE CONTAM HISTÓRIAS
+    </p>
+
+    <h2>Receitas Brasileiras</h2>
+
+    <div class="pesquisa-container">
+
+        <div class="barra-pesquisa">
+            <input
+                type="text"
+                id="campoPesquisa"
+                placeholder="Pesquise uma receita..."
+            >
+        </div>
+
+        <button type="button" class="btn-pesquisa" onclick="pesquisarReceita()">
+    🔍
+</button>
+
+    </div>
+
+        <!-- FILTROS DE REGIÃO -->
+<div class="filtros-regiao">
+
+    <button class="ativo" onclick="filtrarReceitas('todas', this)">
+        Todas as Regiões
+    </button>
+
+    <button onclick="filtrarReceitas('norte', this)">
+        Norte
+    </button>
+
+    <button onclick="filtrarReceitas('nordeste', this)">
+        Nordeste
+    </button>
+
+    <button onclick="filtrarReceitas('centro-oeste', this)">
+        Centro-Oeste
+    </button>
+
+    <button onclick="filtrarReceitas('sudeste', this)">
+        Sudeste
+    </button>
+
+    <button onclick="filtrarReceitas('sul', this)">
+        Sul
+    </button>
+
+</div>
+
+<!-- CARDS DAS RECEITAS -->
+<section class="grid-receitas">
+
+    <!-- FEIJOADA -->
+    <article class="card" data-regiao="sudeste">
+
+        <div class="imagem">
+
+            <span class="categoria-card">SUDESTE</span>
+
+            <button class="favorito" onclick="favoritar(this)">
+                <i class="fa-regular fa-heart"></i>
+            </button>
+
+            <img src="IMAGEM/feijoada.png" alt="Feijoada Completa">
+
+        </div>
+
+        <div class="conteudo">
+
+            <h3>Feijoada Completa</h3>
+
+            <div class="avaliacao">
+                ★★★★★
+                <span>(128)</span>
+            </div>
+
+            <div class="info-receita">
+                <span><i class="fa-regular fa-clock"></i> 3h 30min</span>
+                <span><i class="fa-regular fa-user"></i> 6 pessoas</span>
+                <span><i class="fa-solid fa-signal"></i> Difícil</span>
+            </div>
+
+            <a href="receita.html?receita=feijoada" class="btn-receita">
+    Ver Receita
+</a>
+
+        </div>
+
+    </article>
+
+    <!-- MOQUECA -->
+    <article class="card" data-regiao="nordeste">
+
+        <div class="imagem">
+
+            <span class="categoria-card">NORDESTE</span>
+
+            <button class="favorito" onclick="favoritar(this)">
+                <i class="fa-regular fa-heart"></i>
+            </button>
+
+            <img src="IMAGEM/moqueca baiana.png" alt="Moqueca Baiana">
+
+        </div>
+
+        <div class="conteudo">
+
+            <h3>Moqueca Baiana</h3>
+
+            <div class="avaliacao">
+                ★★★★★
+                <span>(96)</span>
+            </div>
+
+            <div class="info-receita">
+                <span><i class="fa-regular fa-clock"></i> 1h 20min</span>
+                <span><i class="fa-regular fa-user"></i> 5 pessoas</span>
+                <span><i class="fa-solid fa-signal"></i> Médio</span>
+            </div>
+
+            <a href="receita.html?receita=moqueca" class="btn-receita">
+    Ver Receita
+</a>
+
+        </div>
+
+    </article>
+
+    <!-- PÃO DE QUEIJO -->
+    <article class="card" data-regiao="sudeste">
+
+        <div class="imagem">
+
+            <span class="categoria-card">SUDESTE</span>
+
+            <button class="favorito" onclick="favoritar(this)">
+                <i class="fa-regular fa-heart"></i>
+            </button>
+
+            <img src="IMAGEM/pão de queijo.png" alt="Pão de Queijo">
+
+        </div>
+
+        <div class="conteudo">
+
+            <h3>Pão de Queijo</h3>
+
+            <div class="avaliacao">
+                ★★★★★
+                <span>(87)</span>
+            </div>
+
+            <div class="info-receita">
+                <span><i class="fa-regular fa-clock"></i> 40min</span>
+                <span><i class="fa-regular fa-user"></i> 4 pessoas</span>
+                <span><i class="fa-solid fa-signal"></i> Fácil</span>
+            </div>
+
+            <a href="receita.html?receita=paoDeQueijo" class="btn-receita">
+    Ver Receita
+</a>
+
+        </div>
+
+    </article>
+
+    <!-- ACARAJÉ -->
+<article class="card" data-regiao="nordeste">
+
+    <div class="imagem">
+
+        <span class="categoria-card">NORDESTE</span>
+
+        <button class="favorito" onclick="favoritar(this)">
+            <i class="fa-regular fa-heart"></i>
+        </button>
+
+        <img src="IMAGEM/acaraje.png" alt="Acarajé">
+
+    </div>
+
+    <div class="conteudo">
+
+        <h3>Acarajé</h3>
+
+        <div class="avaliacao">
+            ★★★★★
+            <span>(72)</span>
+        </div>
+
+        <div class="info-receita">
+            <span><i class="fa-regular fa-clock"></i> 1h</span>
+            <span><i class="fa-regular fa-user"></i> 6 pessoas</span>
+            <span><i class="fa-solid fa-signal"></i> Médio</span>
+        </div>
+
+        <a href="receita.html?receita=acaraje" class="btn-receita">
+            Ver Receita
+        </a>
+
+    </div>
+
+</article>
+
+<!-- TACACÁ -->
+<article class="card" data-regiao="norte">
+    <div class="imagem">
+        <span class="categoria-card">NORTE</span>
+
+        <button class="favorito" onclick="favoritar(this)">
+            <i class="fa-regular fa-heart"></i>
+        </button>
+
+        <img src="IMAGEM/tacaca.png" alt="Tacacá">
+    </div>
+
+    <div class="conteudo">
+        <h3>Tacacá</h3>
+
+        <div class="avaliacao">
+            ★★★★★
+            <span>(95)</span>
+        </div>
+
+        <div class="info-receita">
+            <span><i class="fa-regular fa-clock"></i> 50min</span>
+            <span><i class="fa-regular fa-user"></i> 4 pessoas</span>
+            <span><i class="fa-solid fa-signal"></i> Médio</span>
+        </div>
+
+        <a href="receita.html?receita=tacaca" class="btn-receita">
+            Ver Receita
+        </a>
+    </div>
+</article>
+
+<!-- PATO NO TUCUPI -->
+<article class="card" data-regiao="norte">
+    <div class="imagem">
+        <span class="categoria-card">NORTE</span>
+
+        <button class="favorito" onclick="favoritar(this)">
+            <i class="fa-regular fa-heart"></i>
+        </button>
+
+        <img src="IMAGEM/pato no tucupi.png" alt="Pato no Tucupi">
+    </div>
+
+    <div class="conteudo">
+        <h3>Pato no Tucupi</h3>
+
+        <div class="avaliacao">
+            ★★★★★
+            <span>(89)</span>
+        </div>
+
+        <div class="info-receita">
+            <span><i class="fa-regular fa-clock"></i> 2h 30min</span>
+            <span><i class="fa-regular fa-user"></i> 6 pessoas</span>
+            <span><i class="fa-solid fa-signal"></i> Difícil</span>
+        </div>
+
+        <a href="receita.html?receita=patoNoTucupi" class="btn-receita">
+            Ver Receita
+        </a>
+    </div>
+</article>
+
+<!-- MANIÇOBA -->
+<article class="card" data-regiao="norte">
+    <div class="imagem">
+        <span class="categoria-card">NORTE</span>
+
+        <button class="favorito" onclick="favoritar(this)">
+            <i class="fa-regular fa-heart"></i>
+        </button>
+
+        <img src="IMAGEM/manicoba.png" alt="Maniçoba">
+    </div>
+
+    <div class="conteudo">
+        <h3>Maniçoba</h3>
+
+        <div class="avaliacao">
+            ★★★★★
+            <span>(84)</span>
+        </div>
+
+        <div class="info-receita">
+            <span><i class="fa-regular fa-clock"></i> Vários dias</span>
+            <span><i class="fa-regular fa-user"></i> 10 pessoas</span>
+            <span><i class="fa-solid fa-signal"></i> Difícil</span>
+        </div>
+
+        <a href="receita.html?receita=manicoba" class="btn-receita">
+            Ver Receita
+        </a>
+    </div>
+</article>
+
+<!-- PIRARUCU DE CASACA -->
+<article class="card" data-regiao="norte">
+    <div class="imagem">
+        <span class="categoria-card">NORTE</span>
+
+        <button class="favorito" onclick="favoritar(this)">
+            <i class="fa-regular fa-heart"></i>
+        </button>
+
+        <img src="IMAGEM/pirarucu de casaca.png" alt="Pirarucu de Casaca">
+    </div>
+
+    <div class="conteudo">
+        <h3>Pirarucu de Casaca</h3>
+
+        <div class="avaliacao">
+            ★★★★★
+            <span>(76)</span>
+        </div>
+
+        <div class="info-receita">
+            <span><i class="fa-regular fa-clock"></i> 1h 40min</span>
+            <span><i class="fa-regular fa-user"></i> 6 pessoas</span>
+            <span><i class="fa-solid fa-signal"></i> Médio</span>
+        </div>
+
+        <a href="receita.html?receita=pirarucuDeCasaca" class="btn-receita">
+            Ver Receita
+        </a>
+    </div>
+</article>
+
+<!-- AÇAÍ NA TIGELA -->
+<article class="card" data-regiao="norte">
+    <div class="imagem">
+        <span class="categoria-card">NORTE</span>
+
+        <button class="favorito" onclick="favoritar(this)">
+            <i class="fa-regular fa-heart"></i>
+        </button>
+
+        <img src="IMAGEM/acai na tigela.png" alt="Açaí na Tigela">
+    </div>
+
+    <div class="conteudo">
+        <h3>Açaí na Tigela</h3>
+
+        <div class="avaliacao">
+            ★★★★★
+            <span>(112)</span>
+        </div>
+
+        <div class="info-receita">
+            <span><i class="fa-regular fa-clock"></i> 10min</span>
+            <span><i class="fa-regular fa-user"></i> 2 pessoas</span>
+            <span><i class="fa-solid fa-signal"></i> Fácil</span>
+        </div>
+
+        <a href="receita.html?receita=acaiNaTigela" class="btn-receita">
+            Ver Receita
+        </a>
+    </div>
+</article>
+
+<!-- CALDEIRADA DE PEIXE -->
+<article class="card" data-regiao="norte">
+    <div class="imagem">
+        <span class="categoria-card">NORTE</span>
+
+        <button class="favorito" onclick="favoritar(this)">
+            <i class="fa-regular fa-heart"></i>
+        </button>
+
+        <img src="IMAGEM/caldeirada de peixe.png" alt="Caldeirada de Peixe">
+    </div>
+
+    <div class="conteudo">
+        <h3>Caldeirada de Peixe</h3>
+
+        <div class="avaliacao">
+            ★★★★★
+            <span>(80)</span>
+        </div>
+
+        <div class="info-receita">
+            <span><i class="fa-regular fa-clock"></i> 1h</span>
+            <span><i class="fa-regular fa-user"></i> 5 pessoas</span>
+            <span><i class="fa-solid fa-signal"></i> Médio</span>
+        </div>
+
+        <a href="receita.html?receita=caldeiradaDePeixe" class="btn-receita">
+            Ver Receita
+        </a>
+    </div>
+</article>
+
+<!-- DAMORIDA -->
+<article class="card" data-regiao="norte">
+    <div class="imagem">
+        <span class="categoria-card">NORTE</span>
+
+        <button class="favorito" onclick="favoritar(this)">
+            <i class="fa-regular fa-heart"></i>
+        </button>
+
+        <img src="IMAGEM/damorida.png" alt="Damorida">
+    </div>
+
+    <div class="conteudo">
+        <h3>Damorida</h3>
+
+        <div class="avaliacao">
+            ★★★★★
+            <span>(67)</span>
+        </div>
+
+        <div class="info-receita">
+            <span><i class="fa-regular fa-clock"></i> 1h 10min</span>
+            <span><i class="fa-regular fa-user"></i> 4 pessoas</span>
+            <span><i class="fa-solid fa-signal"></i> Médio</span>
+        </div>
+
+        <a href="receita.html?receita=damorida" class="btn-receita">
+            Ver Receita
+        </a>
+    </div>
+</article>
+
+<!-- ARROZ DE JAMBU -->
+<article class="card" data-regiao="norte">
+    <div class="imagem">
+        <span class="categoria-card">NORTE</span>
+
+        <button class="favorito" onclick="favoritar(this)">
+            <i class="fa-regular fa-heart"></i>
+        </button>
+
+        <img src="IMAGEM/arroz de jambu.png" alt="Arroz de Jambu">
+    </div>
+
+    <div class="conteudo">
+        <h3>Arroz de Jambu</h3>
+
+        <div class="avaliacao">
+            ★★★★★
+            <span>(73)</span>
+        </div>
+
+        <div class="info-receita">
+            <span><i class="fa-regular fa-clock"></i> 45min</span>
+            <span><i class="fa-regular fa-user"></i> 4 pessoas</span>
+            <span><i class="fa-solid fa-signal"></i> Fácil</span>
+        </div>
+
+        <a href="receita.html?receita=arrozDeJambu" class="btn-receita">
+            Ver Receita
+        </a>
+    </div>
+</article>
+
+<!-- VATAPÁ PARAENSE -->
+<article class="card" data-regiao="norte">
+    <div class="imagem">
+        <span class="categoria-card">NORTE</span>
+
+        <button class="favorito" onclick="favoritar(this)">
+            <i class="fa-regular fa-heart"></i>
+        </button>
+
+        <img src="IMAGEM/vatapa paraense.png" alt="Vatapá Paraense">
+    </div>
+
+    <div class="conteudo">
+        <h3>Vatapá Paraense</h3>
+
+        <div class="avaliacao">
+            ★★★★★
+            <span>(91)</span>
+        </div>
+
+        <div class="info-receita">
+            <span><i class="fa-regular fa-clock"></i> 1h 20min</span>
+            <span><i class="fa-regular fa-user"></i> 6 pessoas</span>
+            <span><i class="fa-solid fa-signal"></i> Médio</span>
+        </div>
+
+        <a href="receita.html?receita=vatapaParaense" class="btn-receita">
+            Ver Receita
+        </a>
+    </div>
+</article>
+
+<!-- BOLO DE MACAXEIRA -->
+<article class="card" data-regiao="norte">
+    <div class="imagem">
+        <span class="categoria-card">NORTE</span>
+
+        <button class="favorito" onclick="favoritar(this)">
+            <i class="fa-regular fa-heart"></i>
+        </button>
+
+        <img src="IMAGEM/bolo de macaxeira.png" alt="Bolo de Macaxeira">
+    </div>
+
+    <div class="conteudo">
+        <h3>Bolo de Macaxeira</h3>
+
+        <div class="avaliacao">
+            ★★★★★
+            <span>(102)</span>
+        </div>
+
+        <div class="info-receita">
+            <span><i class="fa-regular fa-clock"></i> 1h 15min</span>
+            <span><i class="fa-regular fa-user"></i> 8 pessoas</span>
+            <span><i class="fa-solid fa-signal"></i> Fácil</span>
+        </div>
+
+        <a href="receita.html?receita=boloDeMacaxeira" class="btn-receita">
+            Ver Receita
+        </a>
+    </div>
+</article>
+
+<!-- CHURRASCO GAÚCHO -->
+<article class="card" data-regiao="sul">
+    <div class="imagem">
+        <span class="categoria-card">SUL</span>
+
+        <button class="favorito" onclick="favoritar(this)">
+            <i class="fa-regular fa-heart"></i>
+        </button>
+
+        <img src="IMAGEM/churrasco gaucho.png" alt="Churrasco Gaúcho">
+    </div>
+
+    <div class="conteudo">
+        <h3>Churrasco Gaúcho</h3>
+
+        <div class="avaliacao">
+            ★★★★★ <span>(140)</span>
+        </div>
+
+        <div class="info-receita">
+            <span><i class="fa-regular fa-clock"></i> 2h</span>
+            <span><i class="fa-regular fa-user"></i> 8 pessoas</span>
+            <span><i class="fa-solid fa-signal"></i> Médio</span>
+        </div>
+
+        <a href="receita.html?receita=churrascoGaucho" class="btn-receita">
+            Ver Receita
+        </a>
+    </div>
+</article>
+
+<!-- ARROZ CARRETEIRO -->
+<article class="card" data-regiao="sul">
+    <div class="imagem">
+        <span class="categoria-card">SUL</span>
+
+        <button class="favorito" onclick="favoritar(this)">
+            <i class="fa-regular fa-heart"></i>
+        </button>
+
+        <img src="IMAGEM/arroz carreteiro.png" alt="Arroz Carreteiro">
+    </div>
+
+    <div class="conteudo">
+        <h3>Arroz Carreteiro</h3>
+
+        <div class="avaliacao">
+            ★★★★★ <span>(110)</span>
+        </div>
+
+        <div class="info-receita">
+            <span><i class="fa-regular fa-clock"></i> 50min</span>
+            <span><i class="fa-regular fa-user"></i> 6 pessoas</span>
+            <span><i class="fa-solid fa-signal"></i> Fácil</span>
+        </div>
+
+        <a href="receita.html?receita=arrozCarreteiro" class="btn-receita">
+            Ver Receita
+        </a>
+    </div>
+</article>
+
+<!-- BARREADO -->
+<article class="card" data-regiao="sul">
+    <div class="imagem">
+        <span class="categoria-card">SUL</span>
+
+        <button class="favorito" onclick="favoritar(this)">
+            <i class="fa-regular fa-heart"></i>
+        </button>
+
+        <img src="IMAGEM/barreado.png" alt="Barreado">
+    </div>
+
+    <div class="conteudo">
+        <h3>Barreado</h3>
+
+        <div class="avaliacao">
+            ★★★★★ <span>(98)</span>
+        </div>
+
+        <div class="info-receita">
+            <span><i class="fa-regular fa-clock"></i> 6h</span>
+            <span><i class="fa-regular fa-user"></i> 8 pessoas</span>
+            <span><i class="fa-solid fa-signal"></i> Difícil</span>
+        </div>
+
+        <a href="receita.html?receita=barreado" class="btn-receita">
+            Ver Receita
+        </a>
+    </div>
+</article>
+
+<!-- ENTREVERO DE PINHÃO -->
+<article class="card" data-regiao="sul">
+    <div class="imagem">
+        <span class="categoria-card">SUL</span>
+
+        <button class="favorito" onclick="favoritar(this)">
+            <i class="fa-regular fa-heart"></i>
+        </button>
+
+        <img src="IMAGEM/entrevero de pinhao.png" alt="Entrevero de Pinhão">
+    </div>
+
+    <div class="conteudo">
+        <h3>Entrevero de Pinhão</h3>
+
+        <div class="avaliacao">
+            ★★★★★ <span>(84)</span>
+        </div>
+
+        <div class="info-receita">
+            <span><i class="fa-regular fa-clock"></i> 1h</span>
+            <span><i class="fa-regular fa-user"></i> 6 pessoas</span>
+            <span><i class="fa-solid fa-signal"></i> Médio</span>
+        </div>
+
+        <a href="receita.html?receita=entreveroDePinhao" class="btn-receita">
+            Ver Receita
+        </a>
+    </div>
+</article>
+
+<!-- CUCA ALEMÃ -->
+<article class="card" data-regiao="sul">
+    <div class="imagem">
+        <span class="categoria-card">SUL</span>
+
+        <button class="favorito" onclick="favoritar(this)">
+            <i class="fa-regular fa-heart"></i>
+        </button>
+
+        <img src="IMAGEM/cuca alema.png" alt="Cuca Alemã">
+    </div>
+
+    <div class="conteudo">
+        <h3>Cuca Alemã</h3>
+
+        <div class="avaliacao">
+            ★★★★★ <span>(121)</span>
+        </div>
+
+        <div class="info-receita">
+            <span><i class="fa-regular fa-clock"></i> 1h 30min</span>
+            <span><i class="fa-regular fa-user"></i> 10 pessoas</span>
+            <span><i class="fa-solid fa-signal"></i> Médio</span>
+        </div>
+
+        <a href="receita.html?receita=cucaAlema" class="btn-receita">
+            Ver Receita
+        </a>
+    </div>
+</article>
+
+<!-- SAGU DE VINHO -->
+<article class="card" data-regiao="sul">
+    <div class="imagem">
+        <span class="categoria-card">SUL</span>
+
+        <button class="favorito" onclick="favoritar(this)">
+            <i class="fa-regular fa-heart"></i>
+        </button>
+
+        <img src="IMAGEM/sagu de vinho.png" alt="Sagu de Vinho">
+    </div>
+
+    <div class="conteudo">
+        <h3>Sagu de Vinho</h3>
+
+        <div class="avaliacao">
+            ★★★★★ <span>(93)</span>
+        </div>
+
+        <div class="info-receita">
+            <span><i class="fa-regular fa-clock"></i> 1h</span>
+            <span><i class="fa-regular fa-user"></i> 8 pessoas</span>
+            <span><i class="fa-solid fa-signal"></i> Fácil</span>
+        </div>
+
+        <a href="receita.html?receita=saguDeVinho" class="btn-receita">
+            Ver Receita
+        </a>
+    </div>
+</article>
+
+<!-- GALETO AL PRIMO CANTO -->
+<article class="card" data-regiao="sul">
+    <div class="imagem">
+        <span class="categoria-card">SUL</span>
+
+        <button class="favorito" onclick="favoritar(this)">
+            <i class="fa-regular fa-heart"></i>
+        </button>
+
+        <img src="IMAGEM/galeto al primo canto.png" alt="Galeto Al Primo Canto">
+    </div>
+
+    <div class="conteudo">
+        <h3>Galeto Al Primo Canto</h3>
+
+        <div class="avaliacao">
+            ★★★★★ <span>(87)</span>
+        </div>
+
+        <div class="info-receita">
+            <span><i class="fa-regular fa-clock"></i> 1h 20min</span>
+            <span><i class="fa-regular fa-user"></i> 6 pessoas</span>
+            <span><i class="fa-solid fa-signal"></i> Médio</span>
+        </div>
+
+        <a href="receita.html?receita=galetoAlPrimoCanto" class="btn-receita">
+            Ver Receita
+        </a>
+    </div>
+</article>
+
+<!-- POLENTA CREMOSA -->
+<article class="card" data-regiao="sul">
+    <div class="imagem">
+        <span class="categoria-card">SUL</span>
+
+        <button class="favorito" onclick="favoritar(this)">
+            <i class="fa-regular fa-heart"></i>
+        </button>
+
+        <img src="IMAGEM/polenta cremosa.png" alt="Polenta Cremosa">
+    </div>
+
+    <div class="conteudo">
+        <h3>Polenta Cremosa</h3>
+
+        <div class="avaliacao">
+            ★★★★★ <span>(79)</span>
+        </div>
+
+        <div class="info-receita">
+            <span><i class="fa-regular fa-clock"></i> 45min</span>
+            <span><i class="fa-regular fa-user"></i> 5 pessoas</span>
+            <span><i class="fa-solid fa-signal"></i> Fácil</span>
+        </div>
+
+        <a href="receita.html?receita=polentaCremosa" class="btn-receita">
+            Ver Receita
+        </a>
+    </div>
+</article>
+
+<!-- PINHÃO COZIDO -->
+<article class="card" data-regiao="sul">
+    <div class="imagem">
+        <span class="categoria-card">SUL</span>
+
+        <button class="favorito" onclick="favoritar(this)">
+            <i class="fa-regular fa-heart"></i>
+        </button>
+
+        <img src="IMAGEM/pinhao cozido.png" alt="Pinhão Cozido">
+    </div>
+
+    <div class="conteudo">
+        <h3>Pinhão Cozido</h3>
+
+        <div class="avaliacao">
+            ★★★★★ <span>(76)</span>
+        </div>
+
+        <div class="info-receita">
+            <span><i class="fa-regular fa-clock"></i> 50min</span>
+            <span><i class="fa-regular fa-user"></i> 5 pessoas</span>
+            <span><i class="fa-solid fa-signal"></i> Fácil</span>
+        </div>
+
+        <a href="receita.html?receita=pinhaoCozido" class="btn-receita">
+            Ver Receita
+        </a>
+    </div>
+</article>
+
+<!-- TAINHA ASSADA -->
+<article class="card" data-regiao="sul">
+    <div class="imagem">
+        <span class="categoria-card">SUL</span>
+
+        <button class="favorito" onclick="favoritar(this)">
+            <i class="fa-regular fa-heart"></i>
+        </button>
+
+        <img src="IMAGEM/tainha assada.png" alt="Tainha Assada">
+    </div>
+
+    <div class="conteudo">
+        <h3>Tainha Assada</h3>
+
+        <div class="avaliacao">
+            ★★★★★ <span>(101)</span>
+        </div>
+
+        <div class="info-receita">
+            <span><i class="fa-regular fa-clock"></i> 1h 30min</span>
+            <span><i class="fa-regular fa-user"></i> 6 pessoas</span>
+            <span><i class="fa-solid fa-signal"></i> Médio</span>
+        </div>
+
+        <a href="receita.html?receita=tainhaAssada" class="btn-receita">
+            Ver Receita
+        </a>
+    </div>
+</article>
+
+<!-- ARROZ COM PEQUI -->
+<article class="card" data-regiao="centro-oeste">
+    <div class="imagem">
+        <span class="categoria-card">CENTRO-OESTE</span>
+
+        <button class="favorito" onclick="favoritar(this)">
+            <i class="fa-regular fa-heart"></i>
+        </button>
+
+        <img src="IMAGEM/arroz com pequi.png" alt="Arroz com Pequi">
+    </div>
+
+    <div class="conteudo">
+        <h3>Arroz com Pequi</h3>
+
+        <div class="avaliacao">
+            ★★★★★ <span>(105)</span>
+        </div>
+
+        <div class="info-receita">
+            <span><i class="fa-regular fa-clock"></i> 50min</span>
+            <span><i class="fa-regular fa-user"></i> 5 pessoas</span>
+            <span><i class="fa-solid fa-signal"></i> Fácil</span>
+        </div>
+
+        <a href="receita.html?receita=arrozComPequi" class="btn-receita">
+            Ver Receita
+        </a>
+    </div>
+</article>
+
+<!-- EMPADÃO GOIANO -->
+<article class="card" data-regiao="centro-oeste">
+    <div class="imagem">
+        <span class="categoria-card">CENTRO-OESTE</span>
+
+        <button class="favorito" onclick="favoritar(this)">
+            <i class="fa-regular fa-heart"></i>
+        </button>
+
+        <img src="IMAGEM/empadao goiano.png" alt="Empadão Goiano">
+    </div>
+
+    <div class="conteudo">
+        <h3>Empadão Goiano</h3>
+
+        <div class="avaliacao">
+            ★★★★★ <span>(98)</span>
+        </div>
+
+        <div class="info-receita">
+            <span><i class="fa-regular fa-clock"></i> 1h 30min</span>
+            <span><i class="fa-regular fa-user"></i> 8 pessoas</span>
+            <span><i class="fa-solid fa-signal"></i> Médio</span>
+        </div>
+
+        <a href="receita.html?receita=empadaoGoiano" class="btn-receita">
+            Ver Receita
+        </a>
+    </div>
+</article>
+
+<!-- GALINHADA GOIANA -->
+<article class="card" data-regiao="centro-oeste">
+    <div class="imagem">
+        <span class="categoria-card">CENTRO-OESTE</span>
+
+        <button class="favorito" onclick="favoritar(this)">
+            <i class="fa-regular fa-heart"></i>
+        </button>
+
+        <img src="IMAGEM/galinhada goiana.png" alt="Galinhada Goiana">
+    </div>
+
+    <div class="conteudo">
+        <h3>Galinhada Goiana</h3>
+
+        <div class="avaliacao">
+            ★★★★★ <span>(92)</span>
+        </div>
+
+        <div class="info-receita">
+            <span><i class="fa-regular fa-clock"></i> 1h</span>
+            <span><i class="fa-regular fa-user"></i> 6 pessoas</span>
+            <span><i class="fa-solid fa-signal"></i> Médio</span>
+        </div>
+
+        <a href="receita.html?receita=galinhadaGoiana" class="btn-receita">
+            Ver Receita
+        </a>
+    </div>
+</article>
+
+<!-- PAMONHA GOIANA -->
+<article class="card" data-regiao="centro-oeste">
+    <div class="imagem">
+        <span class="categoria-card">CENTRO-OESTE</span>
+
+        <button class="favorito" onclick="favoritar(this)">
+            <i class="fa-regular fa-heart"></i>
+        </button>
+
+        <img src="IMAGEM/pamonha goiana.png" alt="Pamonha Goiana">
+    </div>
+
+    <div class="conteudo">
+        <h3>Pamonha Goiana</h3>
+
+        <div class="avaliacao">
+            ★★★★★ <span>(110)</span>
+        </div>
+
+        <div class="info-receita">
+            <span><i class="fa-regular fa-clock"></i> 1h 20min</span>
+            <span><i class="fa-regular fa-user"></i> 8 pessoas</span>
+            <span><i class="fa-solid fa-signal"></i> Médio</span>
+        </div>
+
+        <a href="receita.html?receita=pamonhaGoiana" class="btn-receita">
+            Ver Receita
+        </a>
+    </div>
+</article>
+
+<!-- SOPA PARAGUAIA -->
+<article class="card" data-regiao="centro-oeste">
+    <div class="imagem">
+        <span class="categoria-card">CENTRO-OESTE</span>
+
+        <button class="favorito" onclick="favoritar(this)">
+            <i class="fa-regular fa-heart"></i>
+        </button>
+
+        <img src="IMAGEM/sopa paraguaia.png" alt="Sopa Paraguaia">
+    </div>
+
+    <div class="conteudo">
+        <h3>Sopa Paraguaia</h3>
+
+        <div class="avaliacao">
+            ★★★★★ <span>(86)</span>
+        </div>
+
+        <div class="info-receita">
+            <span><i class="fa-regular fa-clock"></i> 1h</span>
+            <span><i class="fa-regular fa-user"></i> 8 pessoas</span>
+            <span><i class="fa-solid fa-signal"></i> Fácil</span>
+        </div>
+
+        <a href="receita.html?receita=sopaParaguaia" class="btn-receita">
+            Ver Receita
+        </a>
+    </div>
+</article>
+
+<!-- MARIA-ISABEL -->
+<article class="card" data-regiao="centro-oeste">
+    <div class="imagem">
+        <span class="categoria-card">CENTRO-OESTE</span>
+
+        <button class="favorito" onclick="favoritar(this)">
+            <i class="fa-regular fa-heart"></i>
+        </button>
+
+        <img src="IMAGEM/maria isabel.png" alt="Maria-Isabel">
+    </div>
+
+    <div class="conteudo">
+        <h3>Maria-Isabel</h3>
+
+        <div class="avaliacao">
+            ★★★★★ <span>(79)</span>
+        </div>
+
+        <div class="info-receita">
+            <span><i class="fa-regular fa-clock"></i> 1h</span>
+            <span><i class="fa-regular fa-user"></i> 6 pessoas</span>
+            <span><i class="fa-solid fa-signal"></i> Médio</span>
+        </div>
+
+        <a href="receita.html?receita=mariaIsabel" class="btn-receita">
+            Ver Receita
+        </a>
+    </div>
+</article>
+
+<!-- MOJICA DE PINTADO -->
+<article class="card" data-regiao="centro-oeste">
+    <div class="imagem">
+        <span class="categoria-card">CENTRO-OESTE</span>
+
+        <button class="favorito" onclick="favoritar(this)">
+            <i class="fa-regular fa-heart"></i>
+        </button>
+
+        <img src="IMAGEM/mojica de pintado.png" alt="Mojica de Pintado">
+    </div>
+
+    <div class="conteudo">
+        <h3>Mojica de Pintado</h3>
+
+        <div class="avaliacao">
+            ★★★★★ <span>(83)</span>
+        </div>
+
+        <div class="info-receita">
+            <span><i class="fa-regular fa-clock"></i> 1h 15min</span>
+            <span><i class="fa-regular fa-user"></i> 6 pessoas</span>
+            <span><i class="fa-solid fa-signal"></i> Médio</span>
+        </div>
+
+        <a href="receita.html?receita=mojicaDePintado" class="btn-receita">
+            Ver Receita
+        </a>
+    </div>
+</article>
+
+<!-- VENTRECHA DE PACU -->
+<article class="card" data-regiao="centro-oeste">
+    <div class="imagem">
+        <span class="categoria-card">CENTRO-OESTE</span>
+
+        <button class="favorito" onclick="favoritar(this)">
+            <i class="fa-regular fa-heart"></i>
+        </button>
+
+        <img src="IMAGEM/ventrecha de pacu.png" alt="Ventrecha de Pacu">
+    </div>
+
+    <div class="conteudo">
+        <h3>Ventrecha de Pacu</h3>
+
+        <div class="avaliacao">
+            ★★★★★ <span>(77)</span>
+        </div>
+
+        <div class="info-receita">
+            <span><i class="fa-regular fa-clock"></i> 50min</span>
+            <span><i class="fa-regular fa-user"></i> 4 pessoas</span>
+            <span><i class="fa-solid fa-signal"></i> Médio</span>
+        </div>
+
+        <a href="receita.html?receita=ventrechaDePacu" class="btn-receita">
+            Ver Receita
+        </a>
+    </div>
+</article>
+
+<!-- CHIPA -->
+<article class="card" data-regiao="centro-oeste">
+    <div class="imagem">
+        <span class="categoria-card">CENTRO-OESTE</span>
+
+        <button class="favorito" onclick="favoritar(this)">
+            <i class="fa-regular fa-heart"></i>
+        </button>
+
+        <img src="IMAGEM/chipa.png" alt="Chipa">
+    </div>
+
+    <div class="conteudo">
+        <h3>Chipa</h3>
+
+        <div class="avaliacao">
+            ★★★★★ <span>(94)</span>
+        </div>
+
+        <div class="info-receita">
+            <span><i class="fa-regular fa-clock"></i> 45min</span>
+            <span><i class="fa-regular fa-user"></i> 6 pessoas</span>
+            <span><i class="fa-solid fa-signal"></i> Fácil</span>
+        </div>
+
+        <a href="receita.html?receita=chipa" class="btn-receita">
+            Ver Receita
+        </a>
+    </div>
+</article>
+
+<!-- FURRUNDU -->
+<article class="card" data-regiao="centro-oeste">
+    <div class="imagem">
+        <span class="categoria-card">CENTRO-OESTE</span>
+
+        <button class="favorito" onclick="favoritar(this)">
+            <i class="fa-regular fa-heart"></i>
+        </button>
+
+        <img src="IMAGEM/furrundu.png" alt="Furrundu">
+    </div>
+
+    <div class="conteudo">
+        <h3>Furrundu</h3>
+
+        <div class="avaliacao">
+            ★★★★★ <span>(68)</span>
+        </div>
+
+        <div class="info-receita">
+            <span><i class="fa-regular fa-clock"></i> 1h 30min</span>
+            <span><i class="fa-regular fa-user"></i> 10 pessoas</span>
+            <span><i class="fa-solid fa-signal"></i> Fácil</span>
+        </div>
+
+        <a href="receita.html?receita=furrundu" class="btn-receita">
+            Ver Receita
+        </a>
+    </div>
+</article>
+
+<!-- VIRADO À PAULISTA -->
+<article class="card" data-regiao="sudeste">
+    <div class="imagem">
+        <span class="categoria-card">SUDESTE</span>
+
+        <button class="favorito" onclick="favoritar(this)">
+            <i class="fa-regular fa-heart"></i>
+        </button>
+
+        <img src="IMAGEM/virado a paulista.png" alt="Virado à Paulista">
+    </div>
+
+    <div class="conteudo">
+        <h3>Virado à Paulista</h3>
+
+        <div class="avaliacao">
+            ★★★★★ <span>(98)</span>
+        </div>
+
+        <div class="info-receita">
+            <span><i class="fa-regular fa-clock"></i> 1h</span>
+            <span><i class="fa-regular fa-user"></i> 4 pessoas</span>
+            <span><i class="fa-solid fa-signal"></i> Médio</span>
+        </div>
+
+        <a href="receita.html?receita=viradoAPaulista" class="btn-receita">
+            Ver Receita
+        </a>
+    </div>
+</article>
+
+<!-- PICADINHO -->
+<article class="card" data-regiao="sudeste">
+    <div class="imagem">
+        <span class="categoria-card">SUDESTE</span>
+
+        <button class="favorito" onclick="favoritar(this)">
+            <i class="fa-regular fa-heart"></i>
+        </button>
+
+        <img src="IMAGEM/picadinho.png" alt="Picadinho de Carne">
+    </div>
+
+    <div class="conteudo">
+        <h3>Picadinho de Carne</h3>
+
+        <div class="avaliacao">
+            ★★★★★ <span>(85)</span>
+        </div>
+
+        <div class="info-receita">
+            <span><i class="fa-regular fa-clock"></i> 50min</span>
+            <span><i class="fa-regular fa-user"></i> 4 pessoas</span>
+            <span><i class="fa-solid fa-signal"></i> Fácil</span>
+        </div>
+
+        <a href="receita.html?receita=picadinho" class="btn-receita">
+            Ver Receita
+        </a>
+    </div>
+</article>
+
+<!-- TUTU DE FEIJÃO -->
+<article class="card" data-regiao="sudeste">
+    <div class="imagem">
+        <span class="categoria-card">SUDESTE</span>
+
+        <button class="favorito" onclick="favoritar(this)">
+            <i class="fa-regular fa-heart"></i>
+        </button>
+
+        <img src="IMAGEM/tutu de feijao.png" alt="Tutu de Feijão">
+    </div>
+
+    <div class="conteudo">
+        <h3>Tutu de Feijão</h3>
+
+        <div class="avaliacao">
+            ★★★★★ <span>(91)</span>
+        </div>
+
+        <div class="info-receita">
+            <span><i class="fa-regular fa-clock"></i> 45min</span>
+            <span><i class="fa-regular fa-user"></i> 5 pessoas</span>
+            <span><i class="fa-solid fa-signal"></i> Fácil</span>
+        </div>
+
+        <a href="receita.html?receita=tutuDeFeijao" class="btn-receita">
+            Ver Receita
+        </a>
+    </div>
+</article>
+
+<!-- FRANGO COM QUIABO -->
+<article class="card" data-regiao="sudeste">
+    <div class="imagem">
+        <span class="categoria-card">SUDESTE</span>
+
+        <button class="favorito" onclick="favoritar(this)">
+            <i class="fa-regular fa-heart"></i>
+        </button>
+
+        <img src="IMAGEM/frango com quiabo.png" alt="Frango com Quiabo">
+    </div>
+
+    <div class="conteudo">
+        <h3>Frango com Quiabo</h3>
+
+        <div class="avaliacao">
+            ★★★★★ <span>(104)</span>
+        </div>
+
+        <div class="info-receita">
+            <span><i class="fa-regular fa-clock"></i> 1h 20min</span>
+            <span><i class="fa-regular fa-user"></i> 6 pessoas</span>
+            <span><i class="fa-solid fa-signal"></i> Médio</span>
+        </div>
+
+        <a href="receita.html?receita=frangoComQuiabo" class="btn-receita">
+            Ver Receita
+        </a>
+    </div>
+</article>
+
+<!-- ANGÚ À BAIANA -->
+<article class="card" data-regiao="sudeste">
+    <div class="imagem">
+        <span class="categoria-card">SUDESTE</span>
+
+        <button class="favorito" onclick="favoritar(this)">
+            <i class="fa-regular fa-heart"></i>
+        </button>
+
+        <img src="IMAGEM/angu a baiana.png" alt="Angu à Baiana">
+    </div>
+
+    <div class="conteudo">
+        <h3>Angu à Baiana</h3>
+
+        <div class="avaliacao">
+            ★★★★★ <span>(77)</span>
+        </div>
+
+        <div class="info-receita">
+            <span><i class="fa-regular fa-clock"></i> 1h</span>
+            <span><i class="fa-regular fa-user"></i> 5 pessoas</span>
+            <span><i class="fa-solid fa-signal"></i> Médio</span>
+        </div>
+
+        <a href="receita.html?receita=anguABaiana" class="btn-receita">
+            Ver Receita
+        </a>
+    </div>
+</article>
+
+<!-- BOLINHO DE BACALHAU -->
+<article class="card" data-regiao="sudeste">
+    <div class="imagem">
+        <span class="categoria-card">SUDESTE</span>
+
+        <button class="favorito" onclick="favoritar(this)">
+            <i class="fa-regular fa-heart"></i>
+        </button>
+
+        <img src="IMAGEM/bolinho de bacalhau.png" alt="Bolinho de Bacalhau">
+    </div>
+
+    <div class="conteudo">
+        <h3>Bolinho de Bacalhau</h3>
+
+        <div class="avaliacao">
+            ★★★★★ <span>(89)</span>
+        </div>
+
+        <div class="info-receita">
+            <span><i class="fa-regular fa-clock"></i> 1h</span>
+            <span><i class="fa-regular fa-user"></i> 6 pessoas</span>
+            <span><i class="fa-solid fa-signal"></i> Médio</span>
+        </div>
+
+        <a href="receita.html?receita=bolinhoDeBacalhau" class="btn-receita">
+            Ver Receita
+        </a>
+    </div>
+</article>
+
+<!-- BIFE À CAVALO -->
+<article class="card" data-regiao="sudeste">
+    <div class="imagem">
+        <span class="categoria-card">SUDESTE</span>
+
+        <button class="favorito" onclick="favoritar(this)">
+            <i class="fa-regular fa-heart"></i>
+        </button>
+
+        <img src="IMAGEM/bife a cavalo.png" alt="Bife à Cavalo">
+    </div>
+
+    <div class="conteudo">
+        <h3>Bife à Cavalo</h3>
+
+        <div class="avaliacao">
+            ★★★★★ <span>(82)</span>
+        </div>
+
+        <div class="info-receita">
+            <span><i class="fa-regular fa-clock"></i> 35min</span>
+            <span><i class="fa-regular fa-user"></i> 2 pessoas</span>
+            <span><i class="fa-solid fa-signal"></i> Fácil</span>
+        </div>
+
+        <a href="receita.html?receita=bifeACavalo" class="btn-receita">
+            Ver Receita
+        </a>
+    </div>
+</article>
+
+<!-- JOELHO -->
+<article class="card" data-regiao="sudeste">
+    <div class="imagem">
+        <span class="categoria-card">SUDESTE</span>
+
+        <button class="favorito" onclick="favoritar(this)">
+            <i class="fa-regular fa-heart"></i>
+        </button>
+
+        <img src="IMAGEM/joelho.png" alt="Joelho de Presunto e Queijo">
+    </div>
+
+    <div class="conteudo">
+        <h3>Joelho de Presunto e Queijo</h3>
+
+        <div class="avaliacao">
+            ★★★★★ <span>(76)</span>
+        </div>
+
+        <div class="info-receita">
+            <span><i class="fa-regular fa-clock"></i> 1h 30min</span>
+            <span><i class="fa-regular fa-user"></i> 8 pessoas</span>
+            <span><i class="fa-solid fa-signal"></i> Médio</span>
+        </div>
+
+        <a href="receita.html?receita=joelho" class="btn-receita">
+            Ver Receita
+        </a>
+    </div>
+</article>
+
+<!-- PUDIM DE LEITE -->
+<article class="card" data-regiao="sudeste">
+    <div class="imagem">
+        <span class="categoria-card">SUDESTE</span>
+
+        <button class="favorito" onclick="favoritar(this)">
+            <i class="fa-regular fa-heart"></i>
+        </button>
+
+        <img src="IMAGEM/pudim de leite.png" alt="Pudim de Leite">
+    </div>
+
+    <div class="conteudo">
+        <h3>Pudim de Leite</h3>
+
+        <div class="avaliacao">
+            ★★★★★ <span>(120)</span>
+        </div>
+
+        <div class="info-receita">
+            <span><i class="fa-regular fa-clock"></i> 1h 30min</span>
+            <span><i class="fa-regular fa-user"></i> 10 pessoas</span>
+            <span><i class="fa-solid fa-signal"></i> Fácil</span>
+        </div>
+
+        <a href="receita.html?receita=pudimDeLeite" class="btn-receita">
+            Ver Receita
+        </a>
+    </div>
+</article>
+
+<!-- DOCE DE LEITE -->
+<article class="card" data-regiao="sudeste">
+    <div class="imagem">
+        <span class="categoria-card">SUDESTE</span>
+
+        <button class="favorito" onclick="favoritar(this)">
+            <i class="fa-regular fa-heart"></i>
+        </button>
+
+        <img src="IMAGEM/doce de leite.png" alt="Doce de Leite">
+    </div>
+
+    <div class="conteudo">
+        <h3>Doce de Leite</h3>
+
+        <div class="avaliacao">
+            ★★★★★ <span>(110)</span>
+        </div>
+
+        <div class="info-receita">
+            <span><i class="fa-regular fa-clock"></i> 2h</span>
+            <span><i class="fa-regular fa-user"></i> 10 pessoas</span>
+            <span><i class="fa-solid fa-signal"></i> Fácil</span>
+        </div>
+
+        <a href="receita.html?receita=doceDeLeite" class="btn-receita">
+            Ver Receita
+        </a>
+    </div>
+</article>
+
+<!-- BAIÃO DE DOIS -->
+<article class="card" data-regiao="nordeste">
+    <div class="imagem">
+        <span class="categoria-card">NORDESTE</span>
+
+        <button class="favorito" onclick="favoritar(this)">
+            <i class="fa-regular fa-heart"></i>
+        </button>
+
+        <img src="IMAGEM/baiao de dois.png" alt="Baião de Dois">
+    </div>
+
+    <div class="conteudo">
+        <h3>Baião de Dois</h3>
+
+        <div class="avaliacao">
+            ★★★★★ <span>(115)</span>
+        </div>
+
+        <div class="info-receita">
+            <span><i class="fa-regular fa-clock"></i> 1h</span>
+            <span><i class="fa-regular fa-user"></i> 6 pessoas</span>
+            <span><i class="fa-solid fa-signal"></i> Fácil</span>
+        </div>
+
+        <a href="receita.html?receita=baiaoDeDois" class="btn-receita">
+            Ver Receita
+        </a>
+    </div>
+</article>
+
+<!-- CARNE DE SOL COM MACAXEIRA -->
+<article class="card" data-regiao="nordeste">
+    <div class="imagem">
+        <span class="categoria-card">NORDESTE</span>
+
+        <button class="favorito" onclick="favoritar(this)">
+            <i class="fa-regular fa-heart"></i>
+        </button>
+
+        <img src="IMAGEM/carne de sol com macaxeira.png" alt="Carne de Sol com Macaxeira">
+    </div>
+
+    <div class="conteudo">
+        <h3>Carne de Sol com Macaxeira</h3>
+
+        <div class="avaliacao">
+            ★★★★★ <span>(108)</span>
+        </div>
+
+        <div class="info-receita">
+            <span><i class="fa-regular fa-clock"></i> 1h 30min</span>
+            <span><i class="fa-regular fa-user"></i> 5 pessoas</span>
+            <span><i class="fa-solid fa-signal"></i> Médio</span>
+        </div>
+
+        <a href="receita.html?receita=carneDeSolComMacaxeira" class="btn-receita">
+            Ver Receita
+        </a>
+    </div>
+</article>
+
+<!-- CUSCUZ NORDESTINO -->
+<article class="card" data-regiao="nordeste">
+    <div class="imagem">
+        <span class="categoria-card">NORDESTE</span>
+
+        <button class="favorito" onclick="favoritar(this)">
+            <i class="fa-regular fa-heart"></i>
+        </button>
+
+        <img src="IMAGEM/cuscuz nordestino.png" alt="Cuscuz Nordestino">
+    </div>
+
+    <div class="conteudo">
+        <h3>Cuscuz Nordestino</h3>
+
+        <div class="avaliacao">
+            ★★★★★ <span>(130)</span>
+        </div>
+
+        <div class="info-receita">
+            <span><i class="fa-regular fa-clock"></i> 25min</span>
+            <span><i class="fa-regular fa-user"></i> 4 pessoas</span>
+            <span><i class="fa-solid fa-signal"></i> Fácil</span>
+        </div>
+
+        <a href="receita.html?receita=cuscuzNordestino" class="btn-receita">
+            Ver Receita
+        </a>
+    </div>
+</article>
+
+<!-- ARRUMADINHO -->
+<article class="card" data-regiao="nordeste">
+    <div class="imagem">
+        <span class="categoria-card">NORDESTE</span>
+
+        <button class="favorito" onclick="favoritar(this)">
+            <i class="fa-regular fa-heart"></i>
+        </button>
+
+        <img src="IMAGEM/arrumadinho.png" alt="Arrumadinho">
+    </div>
+
+    <div class="conteudo">
+        <h3>Arrumadinho</h3>
+
+        <div class="avaliacao">
+            ★★★★★ <span>(84)</span>
+        </div>
+
+        <div class="info-receita">
+            <span><i class="fa-regular fa-clock"></i> 1h 10min</span>
+            <span><i class="fa-regular fa-user"></i> 5 pessoas</span>
+            <span><i class="fa-solid fa-signal"></i> Médio</span>
+        </div>
+
+        <a href="receita.html?receita=arrumadinho" class="btn-receita">
+            Ver Receita
+        </a>
+    </div>
+</article>
+
+<!-- RUBACÃO -->
+<article class="card" data-regiao="nordeste">
+    <div class="imagem">
+        <span class="categoria-card">NORDESTE</span>
+
+        <button class="favorito" onclick="favoritar(this)">
+            <i class="fa-regular fa-heart"></i>
+        </button>
+
+        <img src="IMAGEM/rubacao.png" alt="Rubacão">
+    </div>
+
+    <div class="conteudo">
+        <h3>Rubacão</h3>
+
+        <div class="avaliacao">
+            ★★★★★ <span>(88)</span>
+        </div>
+
+        <div class="info-receita">
+            <span><i class="fa-regular fa-clock"></i> 1h</span>
+            <span><i class="fa-regular fa-user"></i> 6 pessoas</span>
+            <span><i class="fa-solid fa-signal"></i> Fácil</span>
+        </div>
+
+        <a href="receita.html?receita=rubacao" class="btn-receita">
+            Ver Receita
+        </a>
+    </div>
+</article>
+
+<!-- SARAPATEL -->
+<article class="card" data-regiao="nordeste">
+    <div class="imagem">
+        <span class="categoria-card">NORDESTE</span>
+
+        <button class="favorito" onclick="favoritar(this)">
+            <i class="fa-regular fa-heart"></i>
+        </button>
+
+        <img src="IMAGEM/sarapatel.png" alt="Sarapatel">
+    </div>
+
+    <div class="conteudo">
+        <h3>Sarapatel</h3>
+
+        <div class="avaliacao">
+            ★★★★★ <span>(70)</span>
+        </div>
+
+        <div class="info-receita">
+            <span><i class="fa-regular fa-clock"></i> 2h</span>
+            <span><i class="fa-regular fa-user"></i> 6 pessoas</span>
+            <span><i class="fa-solid fa-signal"></i> Difícil</span>
+        </div>
+
+        <a href="receita.html?receita=sarapatel" class="btn-receita">
+            Ver Receita
+        </a>
+    </div>
+</article>
+
+<!-- BOBÓ DE CAMARÃO -->
+<article class="card" data-regiao="nordeste">
+    <div class="imagem">
+        <span class="categoria-card">NORDESTE</span>
+
+        <button class="favorito" onclick="favoritar(this)">
+            <i class="fa-regular fa-heart"></i>
+        </button>
+
+        <img src="IMAGEM/bobo de camarao.png" alt="Bobó de Camarão">
+    </div>
+
+    <div class="conteudo">
+        <h3>Bobó de Camarão</h3>
+
+        <div class="avaliacao">
+            ★★★★★ <span>(101)</span>
+        </div>
+
+        <div class="info-receita">
+            <span><i class="fa-regular fa-clock"></i> 1h 20min</span>
+            <span><i class="fa-regular fa-user"></i> 5 pessoas</span>
+            <span><i class="fa-solid fa-signal"></i> Médio</span>
+        </div>
+
+        <a href="receita.html?receita=boboDeCamarao" class="btn-receita">
+            Ver Receita
+        </a>
+    </div>
+</article>
+
+<!-- TAPIOCA RECHEADA -->
+<article class="card" data-regiao="nordeste">
+    <div class="imagem">
+        <span class="categoria-card">NORDESTE</span>
+
+        <button class="favorito" onclick="favoritar(this)">
+            <i class="fa-regular fa-heart"></i>
+        </button>
+
+        <img src="IMAGEM/tapioca recheada.png" alt="Tapioca Recheada">
+    </div>
+
+    <div class="conteudo">
+        <h3>Tapioca Recheada</h3>
+
+        <div class="avaliacao">
+            ★★★★★ <span>(125)</span>
+        </div>
+
+        <div class="info-receita">
+            <span><i class="fa-regular fa-clock"></i> 15min</span>
+            <span><i class="fa-regular fa-user"></i> 2 pessoas</span>
+            <span><i class="fa-solid fa-signal"></i> Fácil</span>
+        </div>
+
+        <a href="receita.html?receita=tapiocaRecheada" class="btn-receita">
+            Ver Receita
+        </a>
+    </div>
+</article>
+
+<!-- CARTOLA -->
+<article class="card" data-regiao="nordeste">
+    <div class="imagem">
+        <span class="categoria-card">NORDESTE</span>
+
+        <button class="favorito" onclick="favoritar(this)">
+            <i class="fa-regular fa-heart"></i>
+        </button>
+
+        <img src="IMAGEM/cartola.png" alt="Cartola">
+    </div>
+
+    <div class="conteudo">
+        <h3>Cartola</h3>
+
+        <div class="avaliacao">
+            ★★★★★ <span>(93)</span>
+        </div>
+
+        <div class="info-receita">
+            <span><i class="fa-regular fa-clock"></i> 20min</span>
+            <span><i class="fa-regular fa-user"></i> 4 pessoas</span>
+            <span><i class="fa-solid fa-signal"></i> Fácil</span>
+        </div>
+
+        <a href="receita.html?receita=cartola" class="btn-receita">
+            Ver Receita
+        </a>
+    </div>
+</article>
+
+<!-- BOLO DE ROLO -->
+<article class="card" data-regiao="nordeste">
+    <div class="imagem">
+        <span class="categoria-card">NORDESTE</span>
+
+        <button class="favorito" onclick="favoritar(this)">
+            <i class="fa-regular fa-heart"></i>
+        </button>
+
+        <img src="IMAGEM/bolo de rolo.png" alt="Bolo de Rolo">
+    </div>
+
+    <div class="conteudo">
+        <h3>Bolo de Rolo</h3>
+
+        <div class="avaliacao">
+            ★★★★★ <span>(99)</span>
+        </div>
+
+        <div class="info-receita">
+            <span><i class="fa-regular fa-clock"></i> 1h 30min</span>
+            <span><i class="fa-regular fa-user"></i> 8 pessoas</span>
+            <span><i class="fa-solid fa-signal"></i> Médio</span>
+        </div>
+
+        <a href="receita.html?receita=boloDeRolo" class="btn-receita">
+            Ver Receita
+        </a>
+    </div>
+</article>
+
+</section>
+
+
+    </main>
+
+    <button id="btnTopo" class="btn-topo" type="button">
+    <i class="fa-solid fa-arrow-up"></i>
+</button>
+
+    <script src="script.js"></script>
+    <script>
+        const email = localStorage.getItem("email");
+        const senha = localStorage.getItem("senha");
+      
+        if (!email || !senha) {
+          alert("Você precisa fazer login primeiro!");
+          window.location.href = "login.html";
+        }
+      </script>
+
+<div id="perfilModal" class="perfil-modal">
+
+    <div class="perfil-box">
+
+        <span class="fechar" onclick="fecharPerfil()">✖</span>
+
+        <img id="fotoGrande" src="perfil-padrao.png" alt="Foto de perfil">
+
+        <h2 id="nomeGrande">Usuário</h2>
+
+        <p>
+            <strong>Email:</strong>
+            <span id="emailPerfil"></span>
+        </p>
+
+        <input
+            type="file"
+            id="uploadFoto"
+            accept="image/*"
+        >
+
+        <button onclick="salvarFoto()">
+            Salvar Foto
+        </button>
+
+        <button onclick="logout()">
+            🚪 Sair da Conta
+        </button>
+
+    </div>
+
+</div>
+
+<button id="btnTopo" class="btn-topo" onclick="voltarAoTopo()">
+    <i class="fa-solid fa-arrow-up"></i>
+</button>
+
+<!-- JANELA DE INFORMAÇÕES DO SITE -->
+<div id="modalInfo" class="modal-info">
+
+    <div class="caixa-info">
+
+        <button class="fechar-info" onclick="fecharInfo()">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <h2><i class="fa-solid fa-utensils"></i> Temperos do Brasil</h2>
+
+        <p>
+            Bem-vindo ao Temperos do Brasil!
+        </p>
+
+        <p>
+            Este site foi criado para apresentar receitas típicas das cinco regiões do Brasil:
+            Norte, Nordeste, Centro-Oeste, Sudeste e Sul.
+        </p>
+
+        <p>
+            Aqui você pode pesquisar receitas, filtrar por região, salvar suas receitas favoritas
+            e assistir vídeos para aprender o preparo de cada prato.
+        </p>
+
+        <p>
+            Explore os sabores, ingredientes e tradições da culinária brasileira.
+        </p>
+
+       <h3 class="titulo-codigos">
+    <i class="fa-solid fa-code"></i> Tecnologias utilizadas
+</h3>
+
+<div class="lista-codigos">
+
+    <div class="codigo-item">
+        <i class="fa-brands fa-html5"></i>
+        <div>
+            <strong>HTML</strong>
+            <span>Usado para criar a estrutura das páginas, receitas, botões e janelas do site.</span>
+        </div>
+    </div>
+
+    <div class="codigo-item">
+        <i class="fa-brands fa-css3-alt"></i>
+        <div>
+            <strong>CSS</strong>
+            <span>Usado para criar cores, fontes, animações, modo claro e escuro e o visual do site.</span>
+        </div>
+    </div>
+
+    <div class="codigo-item">
+        <i class="fa-brands fa-js"></i>
+        <div>
+            <strong>JavaScript</strong>
+            <span>Usado para fazer os botões funcionarem, pesquisar receitas, favoritos, perfil, login e tema escuro.</span>
+        </div>
+    </div>
+
+    <div class="codigo-item">
+        <i class="fa-solid fa-database"></i>
+        <div>
+            <strong>LocalStorage</strong>
+            <span>Usado para salvar dados no navegador, como conta, senha, foto do perfil, favoritos e tema escolhido.</span>
+        </div>
+    </div>
+
+    <div class="codigo-item">
+        <i class="fa-brands fa-font-awesome"></i>
+        <div>
+            <strong>Font Awesome</strong>
+            <span>Usado para os ícones do site, como coração, perfil, lua, sol, lupa e informações.</span>
+        </div>
+    </div>
+
+</div>
+
+<div class="info-rodape">
+    Site desenvolvido para apresentar a diversidade da culinária brasileira 🇧🇷
+</div>
+    </div>
+
+</div>
+
+</body>
+</html>
